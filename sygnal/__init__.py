@@ -100,6 +100,9 @@ class Notification:
             else:
                 self.__dict__[a] = None
 
+        if self.__dict__['sender'].startswith("@__mpb__"):
+            self.__dict__['room_name'] = None
+
         if 'devices' not in notif or not isinstance(notif['devices'], list):
                raise InvalidNotificationException("Expected list in 'devices' key")
 
